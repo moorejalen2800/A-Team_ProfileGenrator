@@ -6,11 +6,9 @@
 
 ## User Story
 
-```md
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
-```
+A app that helps generate a webpage that displays my team's basic info
+
+
 # Installation
 
 You will need to run "npm install inquirer" and "npm install --save-dev jest" for the inquirer and jest packages.
