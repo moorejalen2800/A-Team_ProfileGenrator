@@ -14,6 +14,7 @@ if (fs.existsSync('./team.html')) {
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const distPath = path.join(DIST_DIR, 'team.html');
 const render = require('./page-template.js');
+const { Module } = require("module");
 
 const team = [];
 const idArray = [];
@@ -98,7 +99,7 @@ function appMenu() {
             },
             {
                 type: "input",
-                message: "What is the team Manager's ID?",
+                message: "What is the team Engineer's ID?",
                 name: "engineerId",
                 validate: (employeeInput) => {
                     const pass = employeeInput.match(/^[1-9]\d*$/);
@@ -121,6 +122,13 @@ function appMenu() {
                     return "Please enter valid Email address"
                 },
             },
+            {
+                type: "input",
+                message: "What is the Engineer github",
+                name: "engineerGithub",
+  
+               
+            }
 
         ])
             .then((employeeAnswer) => {
@@ -128,7 +136,7 @@ function appMenu() {
                     employeeAnswer.engineerName,
                     employeeAnswer.engineerId,
                     employeeAnswer.engineerEmail,
-                    employeeAnswer.engineerOffice
+                    employeeAnswer.engineerGithub
                 );
                 team.push(engineer);
                 idArray.push(employeeAnswer.engineerId);
@@ -143,7 +151,7 @@ function appMenu() {
             {
                 type: "input",
                 message: "What is the team intern's name?",
-                name: "managerName",
+                name: "internName",
                 validate: (employeeInput) => {
 
                     if (employeeInput !== '') {
@@ -167,14 +175,14 @@ function appMenu() {
             },
             {
                 type: "input",
-                message: "What is the Interns email address",
-                name: "internEmail",
+                message: "What is the Interns School",
+                name: "internSchool",
                 validate: (employeeInput) => {
-                    const pass = employeeInput.match(/\S+@\S+\.\S+/);
+                    const pass = employeeInput.match();
                     if (pass) {
                         return true;
                     }
-                    return "Please enter valid Email address"
+                    return "Please enter valid school"
                 },
             },
 
@@ -183,8 +191,8 @@ function appMenu() {
                 const manager = new Intern(
                     employeeAnswer.internName,
                     employeeAnswer.internId,
-                    employeeAnswer.internEmail,
-                    employeeAnswer.internOffice
+                    employeeAnswer.internSchool,
+                
                 );
                 team.push(manager);
                 idArray.push(employeeAnswer.managerId);
@@ -206,12 +214,12 @@ function appMenu() {
                 },
             ])
             .then((userChoice) => {
-                switch (userChoice.memberChoice) {
-                    case "Engineer":
-                        addEngineer();
+                switch (userChoice.select) {
+                    case "Add an Engineer":
+                        createEngineer();
                         break;
-                    case "Intern":
-                        addIntern();
+                    case "Add an Intern":
+                        createIntern();
                         break;
                     default:
                         createPage();
@@ -228,8 +236,13 @@ function appMenu() {
     }
 
     createManager();
-    
+
+
+
 }
 appMenu();
 
 
+
+          
+ 
