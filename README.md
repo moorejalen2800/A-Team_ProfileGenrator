@@ -7,14 +7,21 @@ This is a command line based application that lets you make profiles for the mem
 
 # Table of Contents
 
--Installation
--Usage
--Application
--License
--Contributing
--Tests
--Questions
--Installation
+- Installation
+
+- Usage
+
+- Application
+
+- License
+
+- Contributing
+
+- Tests
+
+- Questions
+
+# Installation
 
 You will need to run "npm install inquirer" and "npm install --save-dev jest" for the inquirer and jest packages.
 
